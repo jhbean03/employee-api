@@ -1,0 +1,28 @@
+{
+  "name": "fullstackapi",
+  "version": "1.0.0",
+  "description": "An API to store employee information and related skills.",
+  "homepage": "https://github.com/jhbean03/FullStackAPI#readme",
+  "bugs": {
+    "url": "https://github.com/jhbean03/FullStackAPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhbean03/FullStackAPI.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.5"
+  }
+}
