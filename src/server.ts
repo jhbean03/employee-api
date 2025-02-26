@@ -1,9 +1,14 @@
 import http from 'http';
 import express from 'express';
+import 'reflect-metadata';
+
 import { loggingHandler } from './middleware/loggingHandler';
 import { corsHandler } from './middleware/corsHandler';
 import { routeNotFound } from './middleware/routeNotFound';
 import { SERVER_PORT, SERVER_HOSTNAME } from './config/config';
+
+import MainController from './controllers/main';
+import { defineRoutes } from './modules/routes'
 
 export const router = express();
 export let httpServer: ReturnType<typeof http.createServer>;
@@ -30,9 +35,7 @@ export const Main = () => {
     console.log('-----------------------------------------------');
 
     // Perform a healthcheck of the system to ensure app is running
-    router.get('/main/healthcheck', (req, res, next) => {
-        res.status(200).json({ app: 'is running!' });
-    });
+    defineRoutes([MainController], router);
 
     console.log('-----------------------------------------------');
     console.log('Define Error Routing');
