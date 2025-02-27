@@ -10,6 +10,8 @@ import { mongo, SERVER_PORT, SERVER_HOSTNAME } from './config/config';
 
 import MainController from './controllers/main';
 import { defineRoutes } from './modules/routes'
+import { declareHandler } from './middleware/declareHandler';
+import EmployeesController from './controllers/employees';
 
 export const router = express();
 export let httpServer: ReturnType<typeof http.createServer>;
@@ -45,6 +47,7 @@ export const Main = async () => {
     console.log('-----------------------------------------------');
 
     // Use functions to handle logs and requests
+    router.use(declareHandler);
     router.use(loggingHandler);
     router.use(corsHandler);
 
@@ -53,7 +56,7 @@ export const Main = async () => {
     console.log('-----------------------------------------------');
 
     // Perform a healthcheck of the system to ensure app is running
-    defineRoutes([MainController], router);
+    defineRoutes([MainController, EmployeesController], router);
 
     console.log('-----------------------------------------------');
     console.log('Define Error Routing');
