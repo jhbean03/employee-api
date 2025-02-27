@@ -1,11 +1,12 @@
 import http from 'http';
 import express from 'express';
+import mongoose from 'mongoose';
 import 'reflect-metadata';
 
 import { loggingHandler } from './middleware/loggingHandler';
 import { corsHandler } from './middleware/corsHandler';
 import { routeNotFound } from './middleware/routeNotFound';
-import { SERVER_PORT, SERVER_HOSTNAME } from './config/config';
+import { mongo, SERVER_PORT, SERVER_HOSTNAME } from './config/config';
 
 import MainController from './controllers/main';
 import { defineRoutes } from './modules/routes'
@@ -13,7 +14,7 @@ import { defineRoutes } from './modules/routes'
 export const router = express();
 export let httpServer: ReturnType<typeof http.createServer>;
 
-export const Main = () => {
+export const Main = async () => {
     console.log('-----------------------------------------------');
     console.log('Initializing API');
     console.log('-----------------------------------------------');
@@ -21,6 +22,23 @@ export const Main = () => {
     // Configure express for parsing POST/DELETE requests
     router.use(express.urlencoded({ extended: true}));
     router.use(express.json());
+
+    console.log('-----------------------------------------------');
+    console.log('Connect to Mongo');
+    console.log('-----------------------------------------------');
+
+    // Attempt to connect to MongoDB
+    try {
+        const connection = await mongoose.connect(mongo.MONGO_CONNECTION)
+        console.log('-----------------------------------------------');
+        console.log('Connected to Mongo: ', connection.version);
+        console.log('-----------------------------------------------');
+    } catch (error) {
+        console.log('-----------------------------------------------');
+        console.log('Unable to Connect to Mongo');
+        console.error(error);
+        console.log('-----------------------------------------------');
+    }
 
     console.log('-----------------------------------------------');
     console.log('Logging & Configuration');
