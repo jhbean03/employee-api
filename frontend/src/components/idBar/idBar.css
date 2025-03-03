@@ -1,0 +1,45 @@
+@import url("https://assets.bux.osu.edu/bux-webfonts2/bux-webfonts2.css");
+
+#searchArea {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#searchBarWrapper {
+    background-color: white;
+    width: 40%;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0 15px;
+    box-shadow: 0px 0px 8px #ddd;
+    display: flex;
+    align-items: center;
+}
+
+#searchBar {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    font-size: 1.25rem;
+    font-family: "BuckeyeSans", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+    width: 100%;
+    margin-left: 5px;
+}
+
+#searchBar:focus {
+    outline: none;
+}
+
+#searchButton {
+    background-color: lightblue;
+    border: none;
+    font-family: "BuckeyeSans", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+    border-radius: 10px;
+    width: 85px;
+}
+
+#searchButton:hover {
+    background-color: rgb(112, 219, 255);
+}
+
