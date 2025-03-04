@@ -3,8 +3,14 @@ import { IDBar } from './components/idBar/idBar';
 import { useState } from 'react';
 import { ResultList } from './components/resultList/resultList';
 
+interface Employee {
+  first_name: string;
+  last_name: string;
+  skills: string[];
+}
+
 function App() {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Employee | null>(null);
 
   return (
     <div className="App">
