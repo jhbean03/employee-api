@@ -9,7 +9,7 @@
         "strict": true,
         "skipLibCheck": true,
         "moduleResolution": "Node16",
-        "outDir": "build",
+        "outDir": "backend/build",
         "types": ["jest", "reflect-metadata"]
     },
     "exclude": ["node_modules/"],

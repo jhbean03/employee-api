@@ -17,7 +17,7 @@ function App() {
       <h1>Employee Database</h1>
       <p>Please enter an employee ID to obtain information about their related skills below.</p>
       <IDBar setResults={setResults}/>
-      <ResultList results={results}></ResultList>
+      {!results ? <p>Not Found</p> : <ResultList results={results}></ResultList>}
     </div>
   );
 }

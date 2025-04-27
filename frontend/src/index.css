@@ -1,8 +1,11 @@
-@import url("https://assets.bux.osu.edu/bux-webfonts2/bux-webfonts2.css");
+@font-face {
+  font-family: "Sansation";
+  src: local("Sansation-Regular"), url("./fonts/Sansation-Regular.ttf") format("truetype");
+}
 
 body {
   margin: 0;
-  font-family: "BuckeyeSans", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-family: "Sansation", sans-serif;
   color: rgb(224, 224, 224)
 }
 
