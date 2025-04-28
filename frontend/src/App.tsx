@@ -37,7 +37,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Employee Database</h1>
+      <h1 className="text-red-500">Employee Database</h1>
       <p>Please enter an employee name to obtain information about them below.</p>
 
       <div id = "searchArea">
