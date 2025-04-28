@@ -1,6 +1,11 @@
 import './App.css';
 import { ResultList } from './components/resultList/resultList';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+export interface SearchInput {
+  input: string;
+  employees: Employee[];
+}
 
 export interface Employee {
   first_name: string;
@@ -8,16 +13,27 @@ export interface Employee {
   skills: string[];
 }
 
-export interface SearchInput {
-  input: string;
-}
-
 function App() {
   const [searchIn, setSearchIn] = useState({ input: "" });
+  const [employees, setEmployees] = useState<Employee[]>([]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchIn({ input: e.target.value })
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const response = await fetch(`http://${process.env.REACT_APP_SERVER_HOSTNAME}:${process.env.REACT_APP_SERVER_PORT}/employees/get/all`);
+          const data = await response.json();
+          setEmployees(data);
+      } catch (e) {
+          console.error("Error fetching employee data from the database:", e);
+      }
+    };
+
+    fetchData();
+  }, []);
   
   return (
     <div className="App">
@@ -30,7 +46,7 @@ function App() {
         </div>
       </div>
 
-      <ResultList input={searchIn.input}></ResultList>
+      <ResultList input={searchIn.input} employees={employees}></ResultList>
 
     </div>
   );
