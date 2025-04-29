@@ -1,3 +1,4 @@
+import { StringMappingType } from 'typescript';
 import './App.css';
 import { ResultList } from './components/resultList/resultList';
 import React, { useState, useEffect } from 'react';
@@ -24,7 +25,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const response = await fetch(`http://${process.env.REACT_APP_SERVER_HOSTNAME}:${process.env.REACT_APP_SERVER_PORT}/employees/get/all`);
+          const response = await fetch(`http://${import.meta.env.VITE_APP_SERVER_HOSTNAME}:${import.meta.env.VITE_APP_SERVER_PORT}/employees/get/all`);
           const data = await response.json();
           setEmployees(data);
       } catch (e) {
