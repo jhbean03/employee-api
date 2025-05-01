@@ -1,5 +1,4 @@
 import { StringMappingType } from 'typescript';
-import './App.css';
 import { ResultList } from './components/resultList/resultList';
 import React, { useState, useEffect } from 'react';
 
@@ -37,13 +36,13 @@ function App() {
   }, []);
   
   return (
-    <div className="App">
-      <h1 className="text-red-500">Employee Database</h1>
-      <p>Please enter an employee name to obtain information about them below.</p>
+    <div className="text-center">
+      <h1 className="text-5xl mt-[0.5em] mb-[0.5em]">Employee Database</h1>
+      <p className="text-xl mb-[1em]">Please enter an employee name to obtain information about them below.</p>
 
-      <div id = "searchArea">
-        <div id = "searchBarWrapper">
-          <input id = "searchBar" placeholder = "Type to search..." value={searchIn.input} onChange={handleSearchChange}/>
+      <div className="flex justify-center">
+        <div className="bg-white w-2/5 rounded-[10px] h-[2.5rem] pl-[15px] pr-[15px] shadow-[0_0_8px_#ddd]">
+          <input className="h-[100%] w-[100%] text-[1.25em] focus:outline-none text-gray-500" placeholder = "Type to search..." value={searchIn.input} onChange={handleSearchChange}/>
         </div>
       </div>
 
