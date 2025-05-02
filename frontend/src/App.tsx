@@ -36,7 +36,7 @@ function App() {
   }, []);
   
   return (
-    <div className="text-center">
+    <div className="text-center animate-fadeIn">
       <h1 className="text-5xl mt-[0.5em] mb-[0.5em]">Employee Database</h1>
       <p className="text-xl mb-[1em]">Please enter an employee name to obtain information about them below.</p>
 

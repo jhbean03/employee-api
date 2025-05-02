@@ -31,12 +31,11 @@ export const ResultList = ({ input, employees }: SearchInput) => {
     };
 
     let filteredEmployees = filterEmployeeData();
-    console.log(filteredEmployees);
 
     return(
-        <div className="grid grid-cols-5 justify-items-center mt-[1em] gap-[1em] pb-[1em]">
+        <div className="grid grid-cols-5 justify-items-center mt-[2.5em] gap-[1em] pb-[1em]">
             {filteredEmployees.map(employee => 
-                <div className="bg-zinc-700/75 p-[2em] w-[15em] rounded-[20px] hover:bg-sky-500">
+                <div className="bg-zinc-700/75 p-[2em] w-[15em] rounded-[20px] transition duration-300 hover:bg-sky-500">
                     <div>{employee.first_name}</div>
                     <div> {employee.last_name}</div>
                     <div className="mt-[1em] mb-[0.5em]"><u>Skills</u></div>
