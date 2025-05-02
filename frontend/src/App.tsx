@@ -46,6 +46,8 @@ function App() {
         </div>
       </div>
 
+      <p className="text-xl mt-[1em]"><i>Note: You may need to scroll on an employee's skills to see all of them!</i></p>
+
       <ResultList input={searchIn.input} employees={employees}></ResultList>
 
     </div>

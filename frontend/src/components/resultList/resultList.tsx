@@ -35,18 +35,17 @@ export const ResultList = ({ input, employees }: SearchInput) => {
     return(
         <div className="grid grid-cols-5 justify-items-center mt-[2.5em] gap-[1em] pb-[1em]">
             {filteredEmployees.map(employee => 
-                <div className="bg-zinc-700/75 p-[2em] w-[15em] rounded-[20px] transition duration-300 hover:bg-sky-500">
+                <div className="bg-zinc-700/75 p-[2em] w-[15em] rounded-[20px]">
                     <div>{employee.first_name}</div>
                     <div> {employee.last_name}</div>
-                    <div className="mt-[1em] mb-[0.5em]"><u>Skills</u></div>
-                    <div>
+                    <div className="mt-[1em] mb-[0.5em]"><u>Skills {employee.skills.length > 0 ? ` (${employee.skills.length})` : ""}</u></div>
+                    <div className="h-[100px] overflow-y-auto">
                         {employee.skills.length === 0 && "No skills listed."}
-                        <ul className="list-disc text-left mb-[0.5em]">
-                        {employee.skills.slice(0,3).map(skill =>
+                        <ul className="list-disc text-left mb-[0.5em] list-inside">
+                        {employee.skills.map(skill =>
                             <li>{skill}</li>
                         )}
                         </ul>
-                        <i>{employee.skills.length > 3 && employee.skills.length - 3 + " more skill(s)"}</i>
                     </div>
                 </div>
             )}
